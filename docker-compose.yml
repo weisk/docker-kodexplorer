@@ -1,15 +1,14 @@
-version: '2'
-
-build:
-  context: .
-  args:
-    - KODEXPLORER_VERSION=4.39
+version: '3'
 
 services:
   kodexplorer:
     image: xaljer/kodexplorer
+    build:
+      context: .
+      args:
+        - KODEXPLORER_VERSION=4.39
     restart: always
     ports:
       - '8006:80'
     volumes:
-      - '/srv/docker/kodexplorer-data:/var/www/html'
+      - './kodexplorer-data:/var/www/html'
